@@ -1,15 +1,23 @@
+// Получаем все кнопки с классом "section-button"
 const buttons = document.querySelectorAll('.section-button');
-const sections = document.querySelectorAll('.section');
 
+// Для каждой кнопки добавляем обработчик события "click"
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-    const sectionId = button.dataset.section;
-    sections.forEach(section => {
-      if (section.id === sectionId) {
-        section.classList.add('show');
-      } else {
-        section.classList.remove('show');
-      }
-    });
+    // Получаем значение атрибута "data-section" кнопки
+    const sectionId = button.getAttribute('data-section');
+
+    // Получаем соответствующий раздел по его id
+    const section = document.getElementById(sectionId);
+
+    // Проверяем, есть ли у раздела класс "active"
+    const isActive = section.classList.contains('active');
+
+    // Если раздел уже активен, то скрываем его, иначе отображаем
+    if (isActive) {
+      section.classList.remove('active');
+    } else {
+      section.classList.add('active');
+    }
   });
 });

@@ -106,6 +106,9 @@ a:hover {
   display: block;
 }
 
+.section.active {
+  display: block;
+}
 
 /* Медиа-запросы для адаптивного дизайна */
 @media (max-width: 768px) {
