@@ -93,13 +93,6 @@ a:hover {
   color: #777;
 }
 
-/* Медиа-запросы для адаптивного дизайна */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-}
-
 .section-button {
   display: block;
   margin-bottom: 10px;
@@ -112,3 +105,15 @@ a:hover {
 .show {
   display: block;
 }
+
+
+/* Медиа-запросы для адаптивного дизайна */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+
+
+
