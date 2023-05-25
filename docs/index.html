@@ -78,6 +78,27 @@
         .course-list li {
             list-style-type: circle;
         }
+        
+        .course-buttons {
+            margin-top: 10px;
+        }
+        
+        .course-buttons button {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 19px;
+            display: inline-block;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border: 1px solid #333; /* Добавление рамки */
+            border-radius: 5px;
+            background-color: #F5DEB3;
+        }
+        
+        .course-buttons button:hover {
+            border-bottom: 2px solid #333;
+        }
     </style>
 </head>
 <body>
@@ -106,8 +127,10 @@
 
         <section id="works" class="hidden">
             <h2>Работы</h2>
-            <button onclick="toggleCourses('course1')">1 курс</button>
-            <button onclick="toggleCourses('course2')">2 курс</button>
+            <div class="course-buttons">
+                <button onclick="toggleCourses('course1')">1 курс</button>
+                <button onclick="toggleCourses('course2')">2 курс</button>
+            </div>
             <div id="course1" class="hidden">
                 <h3>1 курс</h3>
                 <ul class="course-list">
