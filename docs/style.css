@@ -1,59 +1,101 @@
-/* Примеры стилей */
-
-/* Фон страницы */
+/* Размеры шрифтов */
 body {
-  background-color: #fff;
+  font-size: 16px;
 }
 
-/* Заголовок */
 h1 {
-  font-family: Arial, sans-serif;
-  color: #333;
+  font-size: 28px;
 }
 
-/* Навигационное меню */
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+h2 {
+  font-size: 22px;
 }
 
-nav ul li {
-  display: inline;
-  margin-right: 10px;
+/* Цвета */
+body {
+  background-color: #fff; /* Белый фон */
+  color: #333; /* Цвет текста */
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
+h1, h2 {
+  color: #555; /* Цвет заголовков */
 }
 
-nav ul li a:hover {
-  color: #f00;
-}
-
-/* Разделы */
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* Примеры других стилей */
-
-/* Стилизация ссылок */
 a {
-  color: #007bff;
-  text-decoration: none;
+  color: #007bff; /* Цвет ссылок */
+  text-decoration: none; /* Убрать подчеркивание ссылок */
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Подчеркивание ссылок при наведении */
 }
 
-/* Оформление текста */
-p {
+/* Разметка портфолио */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Пример стилизации блока "Обо мне" */
+.about-me {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Пример стилизации блока "Навыки" */
+.skills {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.skill-item {
+  margin-bottom: 10px;
+}
+
+.skill-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Пример стилизации блока "Работы" */
+.works {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.work-item {
+  margin-bottom: 20px;
+}
+
+.work-item:last-child {
+  margin-bottom: 0;
+}
+
+.work-item-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.work-item-description {
   font-size: 16px;
-  line-height: 1.5;
+  color: #777;
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
 }
