@@ -99,27 +99,6 @@
         .course-buttons button:hover {
             border-bottom: 2px solid #333;
         }
-        
-        .lab-buttons {
-            margin-top: 10px;
-        }
-        
-        .lab-buttons button {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 16px;
-            display: inline-block;
-            padding: 3px 8px;
-            margin-right: 5px;
-            border: 1px solid #333; /* Добавление рамки */
-            border-radius: 5px;
-            background-color: #F5DEB3;
-        }
-        
-        .lab-buttons button:hover {
-            border-bottom: 2px solid #333;
-        }
     </style>
 </head>
 <body>
@@ -155,91 +134,50 @@
             <div id="course1" class="hidden">
                 <h3>1 курс</h3>
                 <ul class="course-list">
-                    <li>
-                        <button onclick="toggleLabs('course1-lab1')">Дисциплина 1</button>
-                        <div id="course1-lab1" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 1</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button onclick="toggleLabs('course1-lab2')">Дисциплина 2</button>
-                        <div id="course1-lab2" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 2</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button onclick="toggleLabs('course1-lab3')">Дисциплина 3</button>
-                        <div id="course1-lab3" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 3</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
+                    <li>Дисциплина 1</li>
+                    <li>Дисциплина 2</li>
+                    <li>Дисциплина 3</li>
                 </ul>
             </div>
             <div id="course2" class="hidden">
                 <h3>2 курс</h3>
                 <ul class="course-list">
-                    <li>
-                        <button onclick="toggleLabs('course2-lab1')">Дисциплина 1</button>
-                        <div id="course2-lab1" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 1</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button onclick="toggleLabs('course2-lab2')">Дисциплина 2</button>
-                        <div id="course2-lab2" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 2</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button onclick="toggleLabs('course2-lab3')">Дисциплина 3</button>
-                        <div id="course2-lab3" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 3</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
+                    <li>Дисциплина 1</li>
+                    <li>Дисциплина 2</li>
+                    <li>Дисциплина 3</li>
                 </ul>
             </div>
         </section>
     </div>
 
     <script>
-        function toggleCourses(courseId) {
-            const course = document.getElementById(courseId);
-            course.classList.toggle('hidden');
-        }
-        
-        function toggleLabs(labId) {
-            const lab = document.getElementById(labId);
-            lab.classList.toggle('hidden');
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                sections.forEach((section) => {
+                    section.classList.add('hidden');
+                    if (section.id === targetId) {
+                        section.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+        function toggleCourses(course) {
+            const course1 = document.getElementById('course1');
+            const course2 = document.getElementById('course2');
+            
+            if (course === 'course1') {
+                course1.classList.remove('hidden');
+                course2.classList.add('hidden');
+            } else if (course === 'course2') {
+                course1.classList.add('hidden');
+                course2.classList.remove('hidden');
+            }
         }
     </script>
 </body>
