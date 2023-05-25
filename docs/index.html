@@ -1,35 +1,111 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Портфолио студента РГПУ им. А.И. Герцена</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио студента РГПУ им. А. И. Герцена, ИИТиТО, ИВТ-1, Афанасьева Андрея Дмитриевича</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        nav {
+            background-color: #f2f2f2;
+            width: 200px;
+            height: 100vh;
+            padding: 20px;
+            float: left;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin-bottom: 10px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        
+        .content h2 {
+            margin-top: 0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Портфолио студента РГПУ им. А. И. Герцена, ИИТиТО, ИВТ-1, Афанасьева Андрея Дмитриевича</h1>
-  </header>
+    <header>
+        <h1>Портфолио студента РГПУ им. А. И. Герцена, ИИТиТО, ИВТ-1, Афанасьева Андрея Дмитриевича</h1>
+    </header>
 
-  <button class="section-button" data-section="about">Обо мне</button>
-  <button class="section-button" data-section="skills">Навыки</button>
-  <button class="section-button" data-section="works">Работы</button>
+    <nav>
+        <ul>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#works">Работы</a></li>
+        </ul>
+    </nav>
 
-  <div id="about-section" class="section">
-    <h2>Раздел "Обо мне"</h2>
-    Я
-  </div>
+    <div class="content">
+        <section id="about">
+            <h2>Обо мне</h2>
+            <p>Здесь можете описать информацию о себе.</p>
+        </section>
 
-  <div id="skills-section" class="section">
-    <h2>Раздел "Навыки"</h2>
-    <p>Текст раздела "Навыки"...</p>
-  </div>
+        <section id="skills" class="hidden">
+            <h2>Навыки</h2>
+            <p>Здесь можете описать свои навыки и компетенции.</p>
+        </section>
 
-  <div id="works-section" class="section">
-    <h2>Раздел "Работы"</h2>
-    <p>Текст раздела "Работы"...</p>
-  </div>
+        <section id="works" class="hidden">
+            <h2>Работы</h2>
+            <p>Здесь можете представить свои выполненные проекты или работы.</p>
+        </section>
+    </div>
 
-  <script src="script.js"></script>
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                sections.forEach((section) => {
+                    section.classList.add('hidden');
+                    if (section.id === targetId) {
+                        section.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
