@@ -3,33 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Styling</title>
+    <title>Портфолио студента РГПУ им. А. И. Герцена, ИИТиТО, ИВТ-1, Афанасьева Андрея Дмитриевича</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFEBCD;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        nav {
+            background-color: #DEB887;
+            width: 200px;
+            height: 100vh;
+            padding: 5px;
+            float: left;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin-bottom: 5px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 19px;
+            display: block;
+            padding: 10px;
+            border: 1px solid #333;
+            border-top-right-radius: 10px;
+            width: 190px;
+            background-color: #F5DEB3;
+        }
+        
+        nav a:hover {
+            border-bottom: 2px solid #333;
+        }
+        
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        
+        .content h2 {
+            margin-top: 0;
+        }
+        
         .hidden {
             display: none;
         }
-
-        .lab-buttons button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
+        
+        .course-buttons button {
             text-decoration: none;
-            display: inline-block;
+            color: #333;
+            font-weight: bold;
+            font-size: 19px;
+            display: block;
+            padding: 10px;
+            border: 1px solid #333;
+            border-top-right-radius: 10px;
+            width: 190px;
+            background-color: #F5DEB3;
+            margin-bottom: 5px;
+        }
+        
+        .course-buttons button:hover {
+            border-bottom: 2px solid #333;
+        }
+        
+        .course-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .lab-buttons button {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
             font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
+            display: block;
+            margin-bottom: 5px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            width: 150px;
+            background-color: #F5DEB3;
+        }
+        
+        .lab-buttons button:hover {
+            border-bottom: 2px solid #333;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="#course1">1 курс</a>
-            <a href="#course2">2 курс</a>
-        </nav>
-        <section>
+    <header>
+        <h1>Портфолио студента РГПУ им. А. И. Герцена, ИИТиТО, ИВТ-1, Афанасьева Андрея Дмитриевича</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#works">Работы</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <section id="about">
+            <h2>Обо мне</h2>
+            <p>Меня зовут Афанасьев Андрей Дмитриевич. С 2019 года я являюсь студентом РГПУ им. А.И.Герцена. Учусь в Институте Информационных Технологий и Технологического Образования, в группе ИВТ-1.</p>
+        </section>
+
+        <section id="skills" class="hidden">
+            <h2>Навыки</h2>
+            <p>Ну тут явно что-то крутое должно быть написано, чтобы вообще отвал башки.</p>
+        </section>
+
+        <section id="works" class="hidden">
+            <h2>Работы</h2>
+            <p>Здесь можете представить свои выполненные проекты или работы.</p>
+            <div class="course-buttons">
+                <button onclick="toggleCourses('course1', 'course2')">1 курс</button>
+                <button onclick="toggleCourses('course2', 'course1')">2 курс</button>
+            </div>
             <div id="course1" class="hidden">
                 <h3>1 курс</h3>
                 <ul class="course-list">
@@ -108,28 +221,34 @@
             </div>
         </section>
     </div>
+
     <script>
-        const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
 
         navLinks.forEach((link) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-
-                const targetId = link.getAttribute('href').slice(1);
-                const targetSection = document.getElementById(targetId);
-
+                const targetId = link.getAttribute('href').substring(1);
                 sections.forEach((section) => {
                     section.classList.add('hidden');
+                    if (section.id === targetId) {
+                        section.classList.remove('hidden');
+                    }
                 });
-
-                targetSection.classList.remove('hidden');
             });
         });
 
-        function toggleLabs(id) {
-            const labElement = document.getElementById(id);
-            labElement.classList.toggle('hidden');
+        function toggleCourses(courseId, otherCourseId) {
+            const course = document.getElementById(courseId);
+            const otherCourse = document.getElementById(otherCourseId);
+            course.classList.toggle('hidden');
+            otherCourse.classList.add('hidden');
+        }
+
+        function toggleLabs(labId) {
+            const lab = document.getElementById(labId);
+            lab.classList.toggle('hidden');
         }
     </script>
 </body>
