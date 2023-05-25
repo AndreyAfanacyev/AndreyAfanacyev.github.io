@@ -70,6 +70,19 @@
         .hidden {
             display: none;
         }
+        
+        .course-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .lab-buttons {
+            margin-top: 10px;
+        }
+        
+        .lab-buttons button {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -82,13 +95,14 @@
             <li><a href="#about">Обо мне</a></li>
             <li><a href="#skills">Навыки</a></li>
             <li><a href="#works">Работы</a></li>
+            <li><a href="#courses">Курсы</a></li>
         </ul>
     </nav>
 
     <div class="content">
         <section id="about">
             <h2>Обо мне</h2>
-            <p>Меня зовут Афанасьев Андрей Дмитриевич. С 2019 года я являюсь студентом РГПУ им. А.И.Герцена. Учусь в Институте Информационных Технологий и Технологического Образования, в группе ИВТ-1.</p>
+            <p>Меня зовут Афанасьев Андрей Дмитриевич. С 2019 года я являюсь студентом РГПУ им. А.И.Герцена. Учусь в Институте Информационных Технологий и Технологического Образования, в группе ИВТ-1. </p>
         </section>
 
         <section id="skills" class="hidden">
@@ -103,82 +117,30 @@
 
         <section id="courses" class="hidden">
             <h2>Курсы</h2>
-            <div id="course1" class="hidden">
-                <h3>1 курс</h3>
-                <ul class="course-list">
-                    <li>
-                        <button onclick="toggleLabs('course1-lab1')">Дисциплина 1</button>
-                        <div id="course1-lab1" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 1</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
+            <ul class="course-list">
+                <li>
+                    <button onclick="toggleLabs('course1-labs')">Курс 1</button>
+                    <div id="course1-labs" class="hidden">
+                        <h4>Лабораторные работы по Курсу 1</h4>
+                        <div class="lab-buttons">
+                            <button>Лабораторная работа 1</button>
+                            <button>Лабораторная работа 2</button>
+                            <button>Лабораторная работа 3</button>
                         </div>
-                    </li>
-                    <li>
-                        <button onclick="toggleLabs('course1-lab2')">Дисциплина 2</button>
-                        <div id="course1-lab2" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 2</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
+                    </div>
+                </li>
+                <li>
+                    <button onclick="toggleLabs('course2-labs')">Курс 2</button>
+                    <div id="course2-labs" class="hidden">
+                        <h4>Лабораторные работы по Курсу 2</h4>
+                        <div class="lab-buttons">
+                            <button>Лабораторная работа 1</button>
+                            <button>Лабораторная работа 2</button>
+                            <button>Лабораторная работа 3</button>
                         </div>
-                    </li>
-                    <li>
-                        <button onclick="toggleLabs('course1-lab3')">Дисциплина 3</button>
-                        <div id="course1-lab3" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 3</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div id="course2" class="hidden">
-                <h3>2 курс</h3>
-                <ul class="course-list">
-                    <li>
-                        <button onclick="toggleLabs('course2-lab1')">Дисциплина 1</button>
-                        <div id="course2-lab1" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 1</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button onclick="toggleLabs('course2-lab2')">Дисциплина 2</button>
-                        <div id="course2-lab2" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 2</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <button onclick="toggleLabs('course2-lab3')">Дисциплина 3</button>
-                        <div id="course2-lab3" class="hidden">
-                            <h4>Лабораторные работы по Дисциплине 3</h4>
-                            <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
-                                <button>Лабораторная работа 2</button>
-                                <button>Лабораторная работа 3</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </li>
+            </ul>
         </section>
     </div>
 
@@ -203,16 +165,15 @@
         function toggleLabs(labId) {
             const lab = document.getElementById(labId);
             lab.classList.toggle('hidden');
-        }
 
-        courseLinks.forEach((link) => {
-            link.addEventListener('click', () => {
-                const siblingLabs = link.parentNode.querySelectorAll('.hidden');
-                siblingLabs.forEach((lab) => {
-                    lab.classList.remove('hidden');
-                });
+            // Hide sibling labs
+            const siblingLabs = lab.parentNode.querySelectorAll('.hidden');
+            siblingLabs.forEach((siblingLab) => {
+                if (siblingLab !== lab) {
+                    siblingLab.classList.add('hidden');
+                }
             });
-        });
+        }
     </script>
 </body>
 </html>
