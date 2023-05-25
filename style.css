@@ -2,7 +2,7 @@
 
 /* Фон страницы */
 body {
-  background-color: #f1f1f1;
+  background-color: #fff;
 }
 
 /* Заголовок */
@@ -35,7 +35,9 @@ nav ul li a:hover {
 
 /* Разделы */
 section {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Примеры других стилей */
