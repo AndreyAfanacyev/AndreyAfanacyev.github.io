@@ -1,0 +1,57 @@
+/* Примеры стилей */
+
+/* Фон страницы */
+body {
+  background-color: #f1f1f1;
+}
+
+/* Заголовок */
+h1 {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Навигационное меню */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f00;
+}
+
+/* Разделы */
+section {
+  margin-bottom: 20px;
+}
+
+/* Примеры других стилей */
+
+/* Стилизация ссылок */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Оформление текста */
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
