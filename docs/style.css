@@ -99,3 +99,16 @@ a:hover {
     padding: 10px;
   }
 }
+
+.section-button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.section {
+  display: none;
+}
+
+.show {
+  display: block;
+}

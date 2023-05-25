@@ -4,33 +4,30 @@
   <meta charset="UTF-8">
   <title>Портфолио студента РГПУ им. А.И. Герцена</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
 <body>
   <header>
     <h1>Портфолио студента РГПУ им. А. И. Герцена, ИИТиТО, ИВТ-1, Афанасьева Андрея Дмитриевича</h1>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="#about">Обо мне</a></li>
-      <li><a href="#skills">Навыки</a></li>
-      <li><a href="#works">Работы</a></li>
-    </ul>
-  </nav>
+  <button class="section-button" data-section="about">Обо мне</button>
+  <button class="section-button" data-section="skills">Навыки</button>
+  <button class="section-button" data-section="works">Работы</button>
 
-  <section id="about">
-    <h2>Обо мне</h2>
-    Меня зовут Афанасьев Андроей Дмитриевич. С 2019 года я являюсь студентом РГПУ им. А. И. Герцена, ИИТиТО, группы ИВТ-1. На момент 2023 года, завершаю 4-ый курс обучения. 
-  </section>
+  <div id="about-section" class="section">
+    <h2>Раздел "Обо мне"</h2>
+    <p>Текст раздела "Обо мне"...</p>
+  </div>
 
-  <section id="skills">
-    <h2>Навыки</h2>
-    За время обучения в университете, мною были получены навыки по разработке приложений на различных язках програмирования, я был ознакомлен с использованием инфомрационных технлологий в разных сферах нашей жизни, так же были получены навыки работы с базами данных.
-  </section>
+  <div id="skills-section" class="section">
+    <h2>Раздел "Навыки"</h2>
+    <p>Текст раздела "Навыки"...</p>
+  </div>
 
-  <section id="works">
-    <h2>Работы</h2>
-    Типо ссылки
-  </section>
+  <div id="works-section" class="section">
+    <h2>Раздел "Работы"</h2>
+    <p>Текст раздела "Работы"...</p>
+  </div>
 </body>
 </html>
