@@ -98,12 +98,12 @@ a:hover {
   margin-bottom: 10px;
 }
 
-.section {
-  display: none;
-}
-
 .show {
   display: block;
+}
+
+.section {
+  display: none;
 }
 
 .section.active {
