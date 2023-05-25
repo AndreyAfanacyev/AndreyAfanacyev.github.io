@@ -70,6 +70,14 @@
         .hidden {
             display: none;
         }
+        
+        .course-list {
+            padding-left: 20px;
+        }
+        
+        .course-list li {
+            list-style-type: circle;
+        }
     </style>
 </head>
 <body>
@@ -93,12 +101,29 @@
 
         <section id="skills" class="hidden">
             <h2>Навыки</h2>
-            <p>Ну тут явно что то крутое должно быть написано, вот чтоб вообще отвал башки.</p>
+            <p>Ну тут явно что-то крутое должно быть написано, чтобы вообще отвалить башку.</p>
         </section>
 
         <section id="works" class="hidden">
             <h2>Работы</h2>
-            <p>Здесь можете представить свои выполненные проекты или работы.</p>
+            <button onclick="toggleCourses('course1')">1 курс</button>
+            <button onclick="toggleCourses('course2')">2 курс</button>
+            <div id="course1" class="hidden">
+                <h3>1 курс</h3>
+                <ul class="course-list">
+                    <li>Дисциплина 1</li>
+                    <li>Дисциплина 2</li>
+                    <li>Дисциплина 3</li>
+                </ul>
+            </div>
+            <div id="course2" class="hidden">
+                <h3>2 курс</h3>
+                <ul class="course-list">
+                    <li>Дисциплина 1</li>
+                    <li>Дисциплина 2</li>
+                    <li>Дисциплина 3</li>
+                </ul>
+            </div>
         </section>
     </div>
 
@@ -118,6 +143,19 @@
                 });
             });
         });
+
+        function toggleCourses(course) {
+            const course1 = document.getElementById('course1');
+            const course2 = document.getElementById('course2');
+            
+            if (course === 'course1') {
+                course1.classList.remove('hidden');
+                course2.classList.add('hidden');
+            } else if (course === 'course2') {
+                course1.classList.add('hidden');
+                course2.classList.remove('hidden');
+            }
+        }
     </script>
 </body>
 </html>
