@@ -278,7 +278,7 @@
                         <div id="course4-lab2" class="hidden">
                             <h4>Лабораторные работы по Дисциплине "IT-рекрутмент"</h4>
                             <div class="lab-buttons">
-                                <button>Лабораторная работа 1</button>
+                                <button onclick="openGitHub('https://github.com/AndreyAfanacyev/portfolio_all/blob/main/4Kurs/IT%20%D1%80%D0%B5%D0%BA%D1%80%D1%83%D1%82%D0%BC%D0%B5%D0%BD%D1%82/%D0%9B%D0%A01-2.docx')">Лабораторная работа 1-2</button>
                                 <button>Лабораторная работа 2</button>
                                 <button>Лабораторная работа 3</button>
                             </div>
@@ -342,6 +342,10 @@
     function toggleLabs(labId) {
         const lab = document.getElementById(labId);
         lab.classList.toggle('hidden');
+    }
+    
+    function openGitHub(url) {
+      window.open(url, '_blank');
     }
 </script>
 
