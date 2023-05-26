@@ -325,7 +325,7 @@
         otherCourses.forEach((otherCourse) => otherCourse.classList.add('hidden'));
 
         const courseLabs = course.querySelectorAll('.lab-buttons button');
-        courseLabs.forEach((labButton) => labButton.classList.add('hidden'));
+        courseLabs.forEach((labButton) => labButton.classList.remove('hidden'));
     }
 
     function toggleLabs(labId) {
