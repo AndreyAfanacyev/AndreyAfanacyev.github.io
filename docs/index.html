@@ -300,18 +300,36 @@
         </section>
     </div>
 
-    <script>
-        function toggleCourses(courseToShow, courseToHide1, courseToHide2, courseToHide3) {
-            document.getElementById(courseToShow).classList.remove('hidden');
-            document.getElementById(courseToHide1).classList.add('hidden');
-            document.getElementById(courseToHide2).classList.add('hidden');
-            document.getElementById(courseToHide3).classList.add('hidden');
-        }
+<script>
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
 
-        function toggleLabs(labToShow) {
-            document.getElementById(labToShow).classList.toggle('hidden');
-        }
-    </script>
+    navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            sections.forEach((section) => {
+                section.classList.add('hidden');
+                if (section.id === targetId) {
+                    section.classList.remove('hidden');
+                }
+            });
+        });
+    });
+
+    function toggleCourses(courseId, otherCourseIds) {
+        const course = document.getElementById(courseId);
+        const otherCourses = otherCourseIds.map((id) => document.getElementById(id));
+        
+        course.classList.remove('hidden');
+        otherCourses.forEach((otherCourse) => otherCourse.classList.add('hidden'));
+    }
+
+    function toggleLabs(labId) {
+        const lab = document.getElementById(labId);
+        lab.classList.toggle('hidden');
+    }
+</script>
 
 </body>
 
