@@ -46,8 +46,8 @@
             color: #333;
             font-weight: bold;
             font-size: 19px;
-            display: inline-block;
-            padding-bottom: 5px;
+            display: block;
+            padding: 10px;
             border: 1px solid #333;
             border-top-right-radius: 10px;
             width: 190px;
@@ -76,8 +76,8 @@
             color: #333;
             font-weight: bold;
             font-size: 19px;
-            display: inline-block;
-            padding-bottom: 5px;
+            display: block;
+            padding: 10px;
             border: 1px solid #333;
             border-top-right-radius: 10px;
             width: 190px;
@@ -119,78 +119,136 @@
 
     <nav>
         <ul>
-            <li><a href="#course1">1 курс</a></li>
-            <li><a href="#course2">2 курс</a></li>
-            <li><a href="#course3">3 курс</a></li>
-            <li><a href="#course4">4 курс</a></li>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#works">Работы</a></li>
         </ul>
     </nav>
 
     <div class="content">
-        <div id="course1">
-            <h2>1 курс</h2>
-            <ul class="course-list">
-                <li>Дисциплина 1</li>
-                <li>Дисциплина 2</li>
-                <li>Дисциплина 3</li>
-            </ul>
-            <h3>Лабораторные работы</h3>
-            <div class="lab-buttons">
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_1')">Лабораторная работа 1</button>
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_2')">Лабораторная работа 2</button>
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_3')">Лабораторная работа 3</button>
-            </div>
-        </div>
+        <section id="about">
+            <h2>Обо мне</h2>
+            <p>Меня зовут Афанасьев Андрей Дмитриевич. С 2019 года я являюсь студентом РГПУ им. А.И.Герцена. Учусь в Институте Информационных Технологий и Технологического Образования, в группе ИВТ-1.</p>
+        </section>
 
-        <div id="course2" class="hidden">
-            <h2>2 курс</h2>
-            <ul class="course-list">
-                <li>Дисциплина 4</li>
-                <li>Дисциплина 5</li>
-                <li>Дисциплина 6</li>
-            </ul>
-            <h3>Лабораторные работы</h3>
-            <div class="lab-buttons">
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_4')">Лабораторная работа 4</button>
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_5')">Лабораторная работа 5</button>
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_6')">Лабораторная работа 6</button>
-            </div>
-        </div>
+        <section id="skills" class="hidden">
+            <h2>Навыки</h2>
+            <p>Ну тут явно что-то крутое должно быть написано, чтобы вообще отвал башки.</p>
+        </section>
 
-        <div id="course3" class="hidden">
-            <h2>3 курс</h2>
-            <ul class="course-list">
-                <li>Дисциплина 7</li>
-                <li>Дисциплина 8</li>
-                <li>Дисциплина 9</li>
-            </ul>
-            <h3>Лабораторные работы</h3>
-            <div class="lab-buttons">
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_7')">Лабораторная работа 7</button>
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_8')">Лабораторная работа 8</button>
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_9')">Лабораторная работа 9</button>
+        <section id="works" class="hidden">
+            <h2>Работы</h2>
+            <p>Здесь можете представить свои выполненные проекты или работы.</p>
+            <div class="course-buttons">
+                <button onclick="toggleCourses('course1', 'course2')">1 курс</button>
+                <button onclick="toggleCourses('course2', 'course1')">2 курс</button>
             </div>
-        </div>
-
-        <div id="course4" class="hidden">
-            <h2>4 курс</h2>
-            <ul class="course-list">
-                <li>Дисциплина 10</li>
-                <li>Дисциплина 11</li>
-                <li>Дисциплина 12</li>
-            </ul>
-            <h3>Лабораторные работы</h3>
-            <div class="lab-buttons">
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_10')">Лабораторная работа 10</button>
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_11')">Лабораторная работа 11</button>
-                <button onclick="openGitHub('ссылка_на_лабораторную_работу_12')">Лабораторная работа 12</button>
+            <div id="course1" class="hidden">
+                <h3>1 курс</h3>
+                <ul class="course-list">
+                    <li>
+                        <button onclick="toggleLabs('course1-lab1')">Дисциплина 1</button>
+                        <div id="course1-lab1" class="hidden">
+                            <h4>Лабораторные работы по Дисциплине 1</h4>
+                            <div class="lab-buttons">
+                                <button>Лабораторная работа 1</button>
+                                <button>Лабораторная работа 2</button>
+                                <button>Лабораторная работа 3</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button onclick="toggleLabs('course1-lab2')">Дисциплина 2</button>
+                        <div id="course1-lab2" class="hidden">
+                            <h4>Лабораторные работы по Дисциплине 2</h4>
+                            <div class="lab-buttons">
+                                <button>Лабораторная работа 1</button>
+                                <button>Лабораторная работа 2</button>
+                                <button>Лабораторная работа 3</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button onclick="toggleLabs('course1-lab3')">Дисциплина 3</button>
+                        <div id="course1-lab3" class="hidden">
+                            <h4>Лабораторные работы по Дисциплине 3</h4>
+                            <div class="lab-buttons">
+                                <button>Лабораторная работа 1</button>
+                                <button>Лабораторная работа 2</button>
+                                <button>Лабораторная работа 3</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
+            <div id="course2" class="hidden">
+                <h3>2 курс</h3>
+                <ul class="course-list">
+                    <li>
+                        <button onclick="toggleLabs('course2-lab1')">Дисциплина 1</button>
+                        <div id="course2-lab1" class="hidden">
+                            <h4>Лабораторные работы по Дисциплине 1</h4>
+                            <div class="lab-buttons">
+                                <button>Лабораторная работа 1</button>
+                                <button>Лабораторная работа 2</button>
+                                <button>Лабораторная работа 3</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button onclick="toggleLabs('course2-lab2')">Дисциплина 2</button>
+                        <div id="course2-lab2" class="hidden">
+                            <h4>Лабораторные работы по Дисциплине 2</h4>
+                            <div class="lab-buttons">
+                                <button>Лабораторная работа 1</button>
+                                <button>Лабораторная работа 2</button>
+                                <button>Лабораторная работа 3</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button onclick="toggleLabs('course2-lab3')">Дисциплина 3</button>
+                        <div id="course2-lab3" class="hidden">
+                            <h4>Лабораторные работы по Дисциплине 3</h4>
+                            <div class="lab-buttons">
+                                <button>Лабораторная работа 1</button>
+                                <button>Лабораторная работа 2</button>
+                                <button>Лабораторная работа 3</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </div>
 
     <script>
-        function openGitHub(url) {
-            window.open(url, "_blank");
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                sections.forEach((section) => {
+                    section.classList.add('hidden');
+                    if (section.id === targetId) {
+                        section.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+        function toggleCourses(courseId, otherCourseId) {
+            const course = document.getElementById(courseId);
+            const otherCourse = document.getElementById(otherCourseId);
+            course.classList.toggle('hidden');
+            otherCourse.classList.add('hidden');
+        }
+
+        function toggleLabs(labId) {
+            const lab = document.getElementById(labId);
+            lab.classList.toggle('hidden');
         }
     </script>
 </body>
