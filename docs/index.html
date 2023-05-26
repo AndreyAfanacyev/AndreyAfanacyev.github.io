@@ -317,7 +317,7 @@
         });
     });
 
-    function toggleCourses(courseId, otherCourseIds) {
+    function toggleCourses(courseId, ...otherCourseIds) {
         const course = document.getElementById(courseId);
         const otherCourses = otherCourseIds.map((id) => document.getElementById(id));
         
