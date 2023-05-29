@@ -115,7 +115,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden; /* Добавьте overflow: hidden, чтобы скрыть части изображений, выходящие за пределы контейнера */
+  overflow: hidden;
 }
 
 #slideshow img {
@@ -753,25 +753,25 @@ var images = Array.from(slideshow.getElementsByTagName('img'));
 var currentIndex = 0;
 
 function changeImage() {
-  images[currentIndex].classList.remove('active');
+  var currentImage = images[currentIndex];
+  currentImage.classList.remove('active');
   currentIndex = (currentIndex + 1) % images.length;
   images[currentIndex].classList.add('active');
-
-  // Сбросите координату верхнего края для предыдущего изображения
-  images[currentIndex].style.top = 0;
 }
 
-function slideImage() {
+function fadeInImage() {
   var currentImage = images[currentIndex];
-  currentImage.style.top = '100%'; // Сместите текущее изображение вниз
+  currentImage.style.opacity = 0; // Установите начальную прозрачность 0
 
   setTimeout(function() {
-    currentImage.classList.remove('active');
-    currentIndex = (currentIndex + 1) % images.length;
-    images[currentIndex].classList.add('active');
-    images[currentIndex].style.top = 0; // Переместите новое изображение в верхнюю часть контейнера
-  }, 500); // Задержка перед сменой изображения (в миллисекундах)
+    currentImage.style.opacity = 1; // Установите конечную прозрачность 1
+  }, 100); // Задержка перед появлением следующего изображения (в миллисекундах)
 }
+
+setInterval(function() {
+  fadeInImage();
+  setTimeout(changeImage, 500); // Задержка перед сменой изображения (в миллисекундах)
+}, 5500); // Общая задержка между сменой изображений (в миллисекундах)
 
 setInterval(slideImage, 5000);
 </script>
