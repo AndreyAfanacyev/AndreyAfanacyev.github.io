@@ -111,15 +111,24 @@
             border-bottom: 2px solid #333;
         }
 
-        .slideshow img {
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
+    #portfolio {
+      width: 400px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.slideshow img.active {
-  opacity: 1;
-}
+    #portfolio img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #portfolio img.active {
+      opacity: 1;
+    }
     </style>
 </head>
 <body>
@@ -139,12 +148,12 @@
         <section id="about">
             <h2>Обо мне</h2>
             <p>Меня зовут Афанасьев Андрей Дмитриевич. Дата рождения: 22.02.2002</p>
-            <div class="slideshow">
+            <div id="portfolio">
               <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me1.jpg?raw=true" alt="Я 1" width="300" height="200" class="active">
-              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me2.jpg?raw=true" alt="Я 2" width="300" height="200" class="active">
-              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me3.jpg?raw=true" alt="Я 3" width="300" height="200" class="active">
-              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me4.jpg?raw=true" alt="Я 4" width="300" height="200" class="active">
-              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me5.jpg?raw=true" alt="Я 5" width="300" height="200" class="active">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me2.jpg?raw=true" alt="Я 2" width="300" height="200">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me3.jpg?raw=true" alt="Я 3" width="300" height="200">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me4.jpg?raw=true" alt="Я 4" width="300" height="200">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me5.jpg?raw=true" alt="Я 5" width="300" height="200">
             </div>
             <p>Проживаю я в городе Шлиссельбург, где и завершил обучение в местной школе, "МБОУ" ШСОШ №1, отучившись в ней все 11 классов.</p>
             <img src="https://github.com/AndreyAfanacyev/pict/blob/main/pGDFo1o2GUM.jpg?raw=true" alt="Школа">
@@ -736,7 +745,14 @@
             });
         });
     });
+var images = document.querySelectorAll('#portfolio img');
+    var currentIndex = 0;
 
+    setInterval(function() {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 3000); //
 </script>
 
 </body>
