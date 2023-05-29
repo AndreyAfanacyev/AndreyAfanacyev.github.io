@@ -124,14 +124,13 @@
         width: 50%;
         height: 100%;
         opacity: 0;
-        animation: fade 15s infinite; /* Здесь можно настроить скорость смены изображений */
+        animation: fade 15s forwards; /* Здесь можно настроить скорость смены изображений */
       }
 
       @keyframes fade {
         0% { opacity: 0; }
         20% { opacity: 1; }
-        33% { opacity: 1; }
-        53% { opacity: 0; }
+        80% { opacity: 1; }
         100% { opacity: 0; }
       }
     </style>
