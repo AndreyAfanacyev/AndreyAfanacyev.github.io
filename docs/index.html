@@ -769,13 +769,21 @@ function fadeInImage() {
   }, 100);
 }
 
-// Скрыть первое изображение при инициализации
-images[currentIndex].style.opacity = 0;
+function startSlideshow() {
+  setInterval(function() {
+    fadeInImage();
+    setTimeout(changeImage, 500);
+  }, 5500);
+}
 
-setInterval(function() {
-  fadeInImage();
-  setTimeout(changeImage, 500);
-}, 5500);
+// Скрыть все изображения при инициализации
+images.forEach(function(image) {
+  image.style.opacity = 0;
+});
+
+// Показать первое изображение и запустить слайд-шоу
+images[0].style.opacity = 1;
+startSlideshow();
 </script>
 
 </body>
