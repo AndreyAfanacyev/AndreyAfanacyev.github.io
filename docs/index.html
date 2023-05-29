@@ -130,6 +130,25 @@
     #portfolio img.active {
       opacity: 1;
     }
+#portfolio1 {
+      width: 400px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #portfolio1 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #portfolio1 img.active {
+      opacity: 1;
+    }    
     </style>
 </head>
 <body>
@@ -159,7 +178,7 @@
             <p>Проживаю я в городе Шлиссельбург, где и завершил обучение в местной школе, "МБОУ" ШСОШ №1, отучившись в ней все 11 классов.</p>
             <img src="https://github.com/AndreyAfanacyev/pict/blob/main/pGDFo1o2GUM.jpg?raw=true" alt="Школа">
             <p>По завершению учебного процесса в школе, в 2019 году поступил в РГПУ им. А. И. Герцена, в Институт Инфомрационных Технологий и Технологического Образрования.</p>
-            <div id="portfolio">
+            <div id="portfolio1">
               <img src="https://github.com/AndreyAfanacyev/pict/blob/main/Herc/1093458-1024x768.jpg?raw=true" alt="Un 1" class="active">
               <img src="https://github.com/AndreyAfanacyev/pict/blob/main/Herc/wZ5UFS6nK78.jpg?raw=true" alt="Un 2">
               <img src="https://github.com/AndreyAfanacyev/pict/blob/main/Herc/29_full.jpeg?raw=true" alt="Un 3">
@@ -773,6 +792,14 @@
       window.open(url, '_blank');
     }
     var images = document.querySelectorAll('#portfolio img');
+    var currentIndex = 0;
+
+    setInterval(function() {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 3000);
+    var images = document.querySelectorAll('#portfolio1 img');
     var currentIndex = 0;
 
     setInterval(function() {
