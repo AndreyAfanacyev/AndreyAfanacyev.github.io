@@ -762,14 +762,16 @@
     function openGitHub(url) {
       window.open(url, '_blank');
     }
-    var images = document.getElementById('slideshow').getElementsByTagName('img');
-    var currentIndex = 0;
+var images = document.getElementById('slideshow').getElementsByTagName('img');
+var currentIndex = 0;
 
-    function changeImage() {
-      images[currentIndex].classList.remove('active');
-      currentIndex = (currentIndex + 1) % images.length;
-      images[currentIndex].classList.add('active');
-    }
+function changeImage() {
+  images[currentIndex].style.display = 'none';
+  currentIndex = (currentIndex + 1) % images.length;
+  images[currentIndex].style.display = 'block';
+}
+
+setInterval(changeImage, 5000);
 
 setInterval(changeImage, 5000);
 
