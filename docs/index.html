@@ -111,27 +111,32 @@
             border-bottom: 2px solid #333;
         }
 
-#slideshow {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
+        <style>
+  .image-container {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
 
-#slideshow img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: fade 3s infinite;
+  }
 
-#slideshow img.active {
-  opacity: 1;
-  transition-delay: 0.5s; /* Добавьте задержку перед появлением первого изображения */
-}
+  @keyframes fade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    33% { opacity: 1; }
+    53% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+</style>
     </style>
 </head>
 <body>
@@ -151,7 +156,7 @@
         <section id="about">
             <h2>Обо мне</h2>
             <p>Меня зовут Афанасьев Андрей Дмитриевич. Дата рождения: 22.02.2002</p>
-            <div id="slideshow">
+            <div class="image-container">
               <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me1.jpg?raw=true" alt="Я 1" width="300" height="200" class="active">
               <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me2.jpg?raw=true" alt="Я 2" width="300" height="200">
               <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me3.jpg?raw=true" alt="Я 3" width="300" height="200">
@@ -749,41 +754,6 @@
         });
     });
 
-var slideshow = document.getElementById('slideshow');
-var images = Array.from(slideshow.getElementsByTagName('img'));
-var currentIndex = 0;
-
-function changeImage() {
-  var currentImage = images[currentIndex];
-  currentImage.classList.remove('active');
-  currentIndex = (currentIndex + 1) % images.length;
-  images[currentIndex].classList.add('active');
-}
-
-function fadeInImage() {
-  var currentImage = images[currentIndex];
-  currentImage.style.opacity = 0;
-
-  setTimeout(function() {
-    currentImage.style.opacity = 1;
-  }, 100);
-}
-
-function startSlideshow() {
-  setInterval(function() {
-    fadeInImage();
-    setTimeout(changeImage, 500);
-  }, 5500);
-}
-
-// Скрыть все изображения при инициализации
-images.forEach(function(image) {
-  image.style.opacity = 0;
-});
-
-// Показать первое изображение и запустить слайд-шоу
-images[0].style.opacity = 1;
-startSlideshow();
 </script>
 
 </body>
