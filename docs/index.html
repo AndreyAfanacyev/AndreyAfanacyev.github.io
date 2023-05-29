@@ -113,17 +113,19 @@
 
 #slideshow {
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; /* Добавьте overflow: hidden, чтобы скрыть части изображений, выходящие за пределы контейнера */
 }
 
 #slideshow img {
-  position: relative; /* Измените на relative */
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  margin: 10px; /* Добавьте отступы для изображений */
 }
 
 #slideshow img.active {
@@ -746,35 +748,32 @@
         });
     });
 
-    function toggleCourses(courseId, ...otherCourseIds) {
-        const course = document.getElementById(courseId);
-        const otherCourses = otherCourseIds.map((id) => document.getElementById(id));
-        
-        course.classList.remove('hidden');
-        otherCourses.forEach((otherCourse) => otherCourse.classList.add('hidden'));
-
-        const courseLabs = course.querySelectorAll('.lab-buttons button');
-        courseLabs.forEach((labButton) => labButton.classList.remove('hidden'));
-    }
-
-    function toggleLabs(labId) {
-        const lab = document.getElementById(labId);
-        lab.classList.toggle('hidden');
-    }
-    
-    function openGitHub(url) {
-      window.open(url, '_blank');
-    }
-var images = Array.from(document.getElementById('slideshow').getElementsByTagName('img'));
+var slideshow = document.getElementById('slideshow');
+var images = Array.from(slideshow.getElementsByTagName('img'));
 var currentIndex = 0;
 
 function changeImage() {
   images[currentIndex].classList.remove('active');
   currentIndex = (currentIndex + 1) % images.length;
   images[currentIndex].classList.add('active');
+
+  // Сбросите координату верхнего края для предыдущего изображения
+  images[currentIndex].style.top = 0;
 }
 
-setInterval(changeImage, 5000);
+function slideImage() {
+  var currentImage = images[currentIndex];
+  currentImage.style.top = '100%'; // Сместите текущее изображение вниз
+
+  setTimeout(function() {
+    currentImage.classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+    images[currentIndex].style.top = 0; // Переместите новое изображение в верхнюю часть контейнера
+  }, 500); // Задержка перед сменой изображения (в миллисекундах)
+}
+
+setInterval(slideImage, 5000);
 </script>
 
 </body>
