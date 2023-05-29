@@ -122,14 +122,15 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
 #slideshow img.active {
   opacity: 1;
+  transition-delay: 0.5s; /* Добавьте задержку перед появлением первого изображения */
 }
     </style>
 </head>
@@ -761,19 +762,20 @@ function changeImage() {
 
 function fadeInImage() {
   var currentImage = images[currentIndex];
-  currentImage.style.opacity = 0; // Установите начальную прозрачность 0
+  currentImage.style.opacity = 0;
 
   setTimeout(function() {
-    currentImage.style.opacity = 1; // Установите конечную прозрачность 1
-  }, 100); // Задержка перед появлением следующего изображения (в миллисекундах)
+    currentImage.style.opacity = 1;
+  }, 100);
 }
+
+// Скрыть первое изображение при инициализации
+images[currentIndex].style.opacity = 0;
 
 setInterval(function() {
   fadeInImage();
-  setTimeout(changeImage, 500); // Задержка перед сменой изображения (в миллисекундах)
-}, 5500); // Общая задержка между сменой изображений (в миллисекундах)
-
-setInterval(slideImage, 5000);
+  setTimeout(changeImage, 500);
+}, 5500);
 </script>
 
 </body>
