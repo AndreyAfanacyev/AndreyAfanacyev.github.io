@@ -110,6 +110,30 @@
         .lab-buttons button:hover {
             border-bottom: 2px solid #333;
         }
+        .slideshow {
+          position: relative;
+          width: 100%;
+          height: 300px; /* Здесь можно настроить высоту слайдшоу */
+          overflow: hidden;
+        }
+
+      .slideshow img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        animation: fade 5s infinite; /* Здесь можно настроить скорость смены изображений */
+      }
+
+      @keyframes fade {
+        0% { opacity: 0; }
+        20% { opacity: 1; }
+        33% { opacity: 1; }
+        53% { opacity: 0; }
+        100% { opacity: 0; }
+      }
     </style>
 </head>
 <body>
@@ -129,7 +153,13 @@
         <section id="about">
             <h2>Обо мне</h2>
             <p>Меня зовут Афанасьев Андрей Дмитриевич. Дата рождения: 22.02.2002</p>
-
+            <div id="slideshow">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me1.jpg?raw=true" alt="Я 1">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me2.jpg?raw=true" alt="Я 2">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me3.jpg?raw=true" alt="Я 3">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me4.jpg?raw=true" alt="Я 4">
+              <img src="https://github.com/AndreyAfanacyev/pict/blob/main/me/me5.jpg?raw=true" alt="Я 5">
+            </div>
             <p>Проживаю я в городе Шлиссельбург, где и завершил обучение в местной школе, "МБОУ" ШСОШ №1, отучившись в ней все 11 классов.</p>
             <img src="https://github.com/AndreyAfanacyev/pict/blob/main/pGDFo1o2GUM.jpg?raw=true" alt="Школа">
             <p>По завершению учебного процесса в школе, в 2019 году поступил в РГПУ им. А. И. Герцена, в Институт Инфомрационных Технологий и Технологического Образрования.</p>
